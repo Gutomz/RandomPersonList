@@ -8,9 +8,8 @@ import {
 
 export default function RandomPersonListPage() {
   const dispatch = useDispatch();
-  const data = useSelector(state => RandomPersonListPageSelectors
-    .getRandomPersonsList(state));
-  const isLoading = useSelector(state => LoadingSelectors.isLoading(state));
+  const data = useSelector(RandomPersonListPageSelectors.getRandomPersonsList);
+  const isLoading = useSelector(LoadingSelectors.isLoading);
 
   useEffect(() => {
     loadData();
@@ -38,7 +37,7 @@ export default function RandomPersonListPage() {
         ))}
       </ul>
       {isLoading 
-        ? <progress /> 
+        ? <progress />
         : <button onClick={loadData}>Load +10</button>
       }
     </div>
