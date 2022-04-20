@@ -1,16 +1,20 @@
 import React from 'react';
 import RandomPersonListPage from '.';
-import { fireEvent, render, screen, waitFor } from '../../utils/testUtils';
+import { createRoute, createRoutes, fireEvent, render, screen, waitFor } from '../../utils/testUtils';
+
+const testElement = createRoutes([
+  createRoute(<RandomPersonListPage />),
+]);
 
 describe("test RandomPersonListPage", () => {
   test("should loading appears on page load", async () => {
-    render(<RandomPersonListPage />);
+    render(testElement);
     expect(screen.getByRole("progressbar")).toBeInTheDocument();
   });
 
   test('should loading appears on click to load more random person', 
     async () => { 
-      render(<RandomPersonListPage />);
+      render(testElement);
       
       const button = await waitFor(
         () => screen.getByRole("button"), 
@@ -25,7 +29,7 @@ describe("test RandomPersonListPage", () => {
   );
 
   test("should list ten random person on load page", async () => {
-    render(<RandomPersonListPage />);
+    render(testElement);
     
     await waitFor(
       () => screen.getByRole("button"), 
@@ -37,7 +41,7 @@ describe("test RandomPersonListPage", () => {
 
   test('should list twenty random person on click button', 
     async () => { 
-      render(<RandomPersonListPage />);
+      render(testElement);
       
       const button = await waitFor(
         () => screen.getByRole("button"), 
