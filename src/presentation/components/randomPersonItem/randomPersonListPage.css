@@ -1,0 +1,50 @@
+li {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  background-color: rgba(174, 203, 212, 0.3);
+}
+
+li:nth-child(odd) {
+  background-color: rgba(174, 203, 212, 0.55);
+}
+
+li:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+
+li:hover > img#profile-image {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-color: rgb(133, 154, 160);
+}
+
+img#profile-image {
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 2 px;
+  border-color: rgb(174, 203, 212);
+  margin-right: 10px;
+}
+
+div.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div.details > p {
+  margin: 0;
+}
+
+div.details > p.title {
+  font-weight: bold;
+  font-size: medium; 
+  color: rgb(63, 63, 63);
+}
+
+div.details > p.description {
+  font-weight: bold;
+  font-size: small;
+  color: rgba(128, 128, 128, 0.75);
+}
